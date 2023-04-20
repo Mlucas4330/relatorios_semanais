@@ -1,0 +1,10 @@
+<h1>Novo ticket</h1>
+
+<% if notice %>
+<p class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
+
+<%= link_to "🔙", tickets_path, class: "btn btn-lg" %>
+
+<%= render "form", ticket: @ticket %>
+

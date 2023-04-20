@@ -1,0 +1,36 @@
+<%= form_with(model: ticket) do |form| %> <% if ticket.errors.any? %>
+<div style="color: red">
+    <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+    <ul>
+        <% ticket.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="container">
+    <div class="row">
+        <div class="col"><%= form.label :codigo %> <%= form.number_field :codigo, class: "form-control" %></div>
+        <div class="row col">
+            <div class="col"><%= form.label :hora_inicio %> <%= form.time_field :hora_inicio, class: "form-control" %></div>
+            <div class="col"><%= form.label :hora_fim %> <%= form.time_field :hora_fim, class: "form-control" %></div>
+        </div>
+    </div>
+
+    <%= form.label :descricao %> <%= form.text_area :descricao, class: "form-control" %>
+
+    <div class="row">
+        <div class="col">
+            <%= form.label :status %> <%= form.select :status, [['Selecione', disabled: true, selected: true], 'Em andamento', 'Enviado para testes internos', 'Enviado para testes', 'Concluído', 'Retornado dos testes'], {}, class: "form-select" %>
+        </div>
+        <div class="col">
+            <%= form.label :dia_semana %> <%= form.select :dia_semana, [['Selecione', disabled: true, selected: true], 'Segunda-Feira',
+            'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira'], {}, class: "form-select" %>
+        </div>
+    </div>
+    <div class="mt-3"><%= form.submit class: "btn btn-success" %></div>
+</div>
+
+<% end %>

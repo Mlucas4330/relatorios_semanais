@@ -1,0 +1,43 @@
+<div>
+<%= link_to "🆕", new_ticket_path, class: "btn btn-lg" %>
+<%= link_to "🖨️", generate_pdf_path, class: "btn btn-lg" %>
+</div>
+
+
+<% if notice %>
+<p class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Dia</th>
+                <th>Status</th>
+                <th>Início</th>
+                <th>Fim</th>
+                <th style="width: 10%" colspan="2">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tickets.each do |ticket| %>
+                <tr>
+                    <td><%= ticket.codigo %></td>
+                    <td class="text-break"><%= ticket.descricao %></td>
+                    <td><%= ticket.dia_semana %></td>
+                    <td><%= ticket.status %></td>
+                    <td><%= ticket.hora_inicio.strftime("%H:%M") %></td>
+                    <td><%= ticket.hora_fim.strftime("%H:%M") %></td>
+                    <td><%= link_to "✏️", edit_ticket_path(ticket), class: "btn" %></td>
+                    <td><%= link_to "🗑️", destroy_ticket_path(ticket), class: "btn" %></td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>
+       <% if @tickets.length == 0 %>
+            <div class="text-center">Nenhum ticket foi encontrado</div>
+       <% end%>
+</div>

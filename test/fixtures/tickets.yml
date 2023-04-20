@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: 1
+  descricao: MyText
+  hora_inicio: 2023-04-19 17:23:48
+  hora_fim: 2023-04-19 17:23:48
+  dia_semana: MyString
+  status: MyString
+
+two:
+  codigo: 1
+  descricao: MyText
+  hora_inicio: 2023-04-19 17:23:48
+  hora_fim: 2023-04-19 17:23:48
+  dia_semana: MyString
+  status: MyString
