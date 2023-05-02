@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+    belongs_to :user
     validates :codigo, presence: true
     validates :descricao, presence: true
     validates :hora_inicio, presence: true
